@@ -1,0 +1,5 @@
+name: bench-to-byte
+channels:
+  - conda-forge
+dependencies:
+  - nodejs
