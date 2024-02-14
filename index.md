@@ -6,12 +6,9 @@ hero:
   tagline: A biologist's guide to crafting quality code
 #   image:
 #     src: /logo.png
-#     alt: VitePress
+#     alt: Bench2Byte
   actions:
     - theme: brand
       text: Get Learning!
-      link: /lessons/introduction/
-    - theme: alt
-      text: View on GitHub
-      link: https://github.com/WillHannon-MCB/bench-to-byte
+      link: /chapters/introduction/
 ---

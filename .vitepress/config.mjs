@@ -10,46 +10,46 @@ export default defineConfig({
 
     siteTitle: false,
 
-    nav: [{ text: "About", link: "/lessons/introduction/" }],
+    nav: [{ text: "About", link: "/chapters/introduction/" }],
 
     sidebar: [
       {
         text: "Chapters",
         items: [
-          { text: "0. Introduction", link: "/lessons/introduction/" },
+          { text: "0. Introduction", link: "/chapters/introduction/" },
           {
             text: "1. Setting up your IDE",
-            link: "/lessons/setting-up-your-ide/",
+            link: "/chapters/setting-up-your-ide/",
           },
           {
             text: "2. Organizing your projects",
-            link: "/lessons/organizing-your-projects/",
+            link: "/chapters/organizing-your-projects/",
           },
           {
             text: "3. Using remote resources",
-            link: "/lessons/using-remote-resources/",
+            link: "/chapters/using-remote-resources/",
           },
           {
             text: "4. Tracking your code",
-            link: "/lessons/tracking-your-code/",
+            link: "/chapters/tracking-your-code/",
           },
           {
             text: "5. Working collaboratively",
-            link: "/lessons/working-collaboratively/",
+            link: "/chapters/working-collaboratively/",
           },
           {
             text: "6. Managing software environments",
-            link: "/lessons/managing-software-environments/",
+            link: "/chapters/managing-software-environments/",
           },
           {
             text: "7. Reproducible workflows and pipelines",
-            link: "/lessons/creating-workflows-and-pipelines/",
+            link: "/chapters/creating-workflows-and-pipelines/",
           },
           {
             text: "8. Coding best practices",
-            link: "/lessons/coding-best-practices/",
+            link: "/chapters/coding-best-practices/",
           },
-          { text: "9. ChatGPT and LLMs", link: "/lessons/chatgpt-and-llms/" },
+          { text: "9. ChatGPT and LLMs", link: "/chapters/chatgpt-and-llms/" },
         ],
       },
     ],

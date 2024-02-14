@@ -13,16 +13,14 @@ Our goal is to empower biologists with the tools necessary for efficient coding.
 At the moment, this course is geared towards scientists at the Fred Hutch Cancer Center and the [Bloom lab](https://research.fredhutch.org/bloom/en.html) in particular. In the future, we might adapt this course to be useful for a general audience.
 :::
 
-**By [Will Hannon](https://willhannon.com/)**
-
 ## Course Overview
 
-1. [Setting up your IDE](/lessons/setting-up-your-ide/)
-2. [Organizing your projects](/lessons/organizing-your-projects/)
-3. [Using remote resources](/lessons/using-remote-resources/)
-4. [Tracking your code](/lessons/tracking-your-code/)
-5. [Working collaboratively](/lessons/working-collaboratively/)
-6. [Managing software environments](/lessons/managing-software-environments/)
-7. [Reproducible workflows and pipelines](/lessons/creating-workflows-and-pipelines/)
-8. [Coding best practices](/lessons/coding-best-practices/)
-9. [ChatGPT and LLMs](/lessons/chatgpt-and-llms/)
+1. [Setting up your IDE](/chapters/setting-up-your-ide/)
+2. [Organizing your projects](/chapters/organizing-your-projects/)
+3. [Using remote resources](/chapters/using-remote-resources/)
+4. [Tracking your code](/chapters/tracking-your-code/)
+5. [Working collaboratively](/chapters/working-collaboratively/)
+6. [Managing software environments](/chapters/managing-software-environments/)
+7. [Reproducible workflows and pipelines](/chapters/creating-workflows-and-pipelines/)
+8. [Coding best practices](/chapters/coding-best-practices/)
+9. [ChatGPT and LLMs](/chapters/chatgpt-and-llms/)
