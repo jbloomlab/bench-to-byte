@@ -9,8 +9,8 @@ hero:
 #     alt: VitePress
   actions:
     - theme: brand
-      text: Get Started
-      link: /lessons/getting-started
+      text: Get Learning!
+      link: /lessons/introduction/
     - theme: alt
       text: View on GitHub
       link: https://github.com/WillHannon-MCB/bench-to-byte
