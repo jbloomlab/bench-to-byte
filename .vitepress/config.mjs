@@ -6,9 +6,8 @@ export default defineConfig({
   description: "A biologist's guide to crafting quality code",
   head: [["link", { rel: "icon", href: "/logo.png" }]],
   themeConfig: {
-    logo: "/logo.svg",
-
-    siteTitle: false,
+    logo: { light: "/logo.svg", dark: "/logo-dark.svg" },
+    siteTitle: "Bench2Byte",
 
     nav: [{ text: "About", link: "/chapters/introduction/" }],
 
