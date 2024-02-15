@@ -6,7 +6,7 @@ export default defineConfig({
   description: "A biologist's guide to crafting quality code",
   head: [["link", { rel: "icon", href: "/logo.png" }]],
   themeConfig: {
-    // logo: "/logo.png",
+    logo: "/logo.svg",
 
     siteTitle: false,
 
