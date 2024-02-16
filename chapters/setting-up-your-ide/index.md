@@ -1,28 +1,41 @@
 ---
 layout: doc
-title: "Chapter 1: Setting up your IDE"
+title: "1. Setting up your IDE"
 sidebar: true
 aside: true
 ---
 
 # {{ $frontmatter.title }}
 
-## What is an 'IDE'?
+Those familiar with coding will know the importance of using the appropriate text editor. Hopefully you know better than to write code in Microsoft Word. You've probably encountered tools like `Rstudio` for writing `R` code, or `Jupyter` for writing `Python` code. These tools are a perfectly reasonable way to write code, but they're inherently limited to a handful of languages. This quickly becomes an issue in scientific programming where a single project might invlove `bash`, `Python`, `R`, and `markdown`.
 
-A quick description of an Integrated Development Environment (IDE). An IDE is more than just a text editor.
-
-## What problem do IDEs solve?
-
-We have tools like `Rstudio` for `R` and `Jupyterlabs` for `Python`, so why do we want to use an IDE? As biologists, we're often working with multiple languages and tools simultaneously. You might need to edit a python script, rearrange a directory structure, draft a `markdown` file, and write a `bash` script all in short succession. An IDE provides one central location where all of these things can be done at the same time.
+Thankfully, an IDE, or an _Integrated Development Environment_, provides an excellent solution. You can write `markdown` descriptions of your project, edit a `bash` script, organize your directories, read a log file, and run a `Python` script in the terminal all in the same window. We can't stress enough how useful an IDE can be. However, so much functionality in one program can be complicated and intimidating. Below, we'll introduce you to Visual Studio Code (VSCode), one of the most approcable IDEs for general purpose programming.
 
 ## Getting started with VSCode
 
-Instructions for installing VSCode on the your machine. How to open a project in VSCode. A quick tour of the application.
+- What is Visual Studio Code?
+  It's maintained by Microsoft. It's a free version of Visual Studio – a true IDE.
+
+- How do you install VSCode?
+  Here are some simple instructions for how to download VSCode. The actual details are going to depend on your operating system. For a more detailed overview, here's a link to the documentation for VSCode.
 
 ## Configuring VSCode
 
-Adding extensions and changing preferences. Sharing settings across machines with `.dotfiles`.
+VSCode starts out as little more than a glorified text editor. The real power of VScode comes from it's configurability. You'll want to configure some basic settings. You'll also want to add extensions that are relevant to your coding needs.
+
+- Here are some basic extensions that you'll probably want
+  - Intellisense for your language of choice
+  - Liniting
+  - Autoformatting
+  - Grammar and Spellcheck
+
+## VSCode shortcuts
+
+- Opening a terminal window
+- Changing your preferences
 
 ## Helpful Resources
 
-Resources for streamlined VSCode set ups.
+There are other IDEs. There are some IDEs that are amazing for a particular language. There are more full featured IDEs. However, for you average jack-of-all trades, VSCode is the go to.
+
+Check out VSCode's documentation for more details.
