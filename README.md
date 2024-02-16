@@ -2,7 +2,7 @@
 
 Our goal is to empower biologists with the tools necessary for efficient coding. This course is designed for life scientists with moderate computational proficiency who want to optimize their workflow. You’ll learn how to organize projects, navigate the complexities of software environments, and build robust and reproducible pipelines. This guide will walk you through the essential steps needed to elevate your coding skills. You'll not only learn the "how," but the "why" behind each practice, ensuring you can apply these skills to streamline your research and foster reproducibility and collaboration.
 
-*Note: A the moment, this course is geared towards scientists at the Fred Hutch Cancer Center.*
+_Note: A the moment, this course is geared towards scientists at the Fred Hutch Cancer Center._
 
 ## Developing
 
@@ -88,4 +88,12 @@ For more details on writing markdown for a Vitepress website, see the markdown r
     └── logo.png
 ```
 
-To add details to a specific chapter of the course, simply edit the `index.md` file under the corresponding `chapters/<chapter-you-are-editing>/` directory. If you want to include images in your markdown, you can either use a link to a remotely hosted image or add the image to the `public/` directory.
+To add details to a specific chapter of the course, simply edit the `index.md` file under the corresponding `chapters/<chapter-you-are-editing>/` directory. If you want to include images in your markdown, you can either use a link to a remotely hosted image or add the image to the `public/` directory and reference it like so:
+
+```bash
+![Alt Text](/my-image.png)
+```
+
+## Suggestions
+
+If you have any suggestions for topics that aren't covered in this giude, please suggest them in the corresponding [Discussions thread](https://github.com/WillHannon-MCB/bench-to-byte/discussions/1).
