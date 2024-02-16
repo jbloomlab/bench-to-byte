@@ -17,7 +17,7 @@ export default {
       const columns = this.contributors.length;
       return {
         'grid-template-columns': `repeat(auto-fit, minmax(150px, 1fr))`,
-        'max-width': `${150 * columns}px`
+        'max-width': `${210 * columns}px`
       };
     }
   }
@@ -54,7 +54,7 @@ export default {
 
 .contributors-container {
   text-align: center;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .grid-container {
