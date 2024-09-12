@@ -36,57 +36,104 @@ For example, if I have a project called `HMPV-Antibody-Passaging` that I created
 
 ## Access through the command line
 
-It's important to be able to access the file system via the command line in addition to mounting it as a drive to your local computer.
+In addition to mounting the file system to your local computer as a network drive, you can connect to the file system by accessing a remote computer cluster called `Rhino`. `Rhino` is a cluster of 3 large memory, shared computers that are intended for interactive work, and prototyping and development. You can use `Rhino` to write and execute to analyze your data. However, `Rhino` is **not** intended for intensive computational tasks. Fred Hutch has a separate computer cluster called `Gizmo` for intensive tasks.
 
----
+### Logging into `Rhino`
 
+You log into `Rhino` through the command line or shell. If you're not familiar with the command line, check out this [excellent tutorial](https://missing.csail.mit.edu/2020/course-shell/).
 
+Log into `Rhino` by opening up the command line and typing the `ssh` command.
 
-It's likely that at some point you'll need to run an analysis that's so computationally intensive that it would cause your personal computer to melt into a pile of metallic sludge. That's where remote computing becomes handy. Why melt your computer when you can melt someone else's?
+```bash
+ssh MyFredHutchUserName@rhino
+```
 
-In this section, we'll walk you though how to use remote servers and computer clusters. You'll learn how to access these resources, when to use them, and some tips to make things faster and easier.
+You'll be prompted to enter your Fred Hutch password. Note, you can only access `Rhino` like this while using the Fred Hutch wifi. You can log into `Rhino` without being on the wifi, but that requires an [alternative method described in a later section](). Now, you'll see that your terminal's prompt has changed to something like `whannon@rhino02:~$ `, and commands that you run on the command line will be executed by `Rhino`.
 
-## `SSH`
+When you initially connect to `Rhino`, you're location on the file system is a special 'home' directory that's specific to each user and located at `/home/myusername`. We'll use this home directory in a [later section](), but for now, most of our code and data should be located in the Bloom lab's directory (`/fh/fast/bloom_j/`). We could move there by navigating to our computational notebook like so.
 
-You need a way to access a remote computer or resource. `SSH` provides a protocol for doing this. It's basically a way to transfer data between a remote computer (or series of computers) and your personal machine.
+```bash
+cd /fh/fast/bloom_j/computational_notebooks/whannon/
+```
 
-## `SSH` Keys
+But, it becomes annoying if you have to remember the full path every time you log onto `Rhino`. Instead, we can make our lives a little easier with 'symbolic links'. These are a way of making shortcuts between places on the file system. Instead of typing the full path each time, we can type a shortened version and it will jump us to the correct location.
 
-If you're going to use `SSH` to access remote resources, you'll need a way to verify your identity. That's where `SSH` keys come into play. `SSH` keys act like a secret handshake between you and a remote machine. You could use a passoword, but why would you? If you're a frequent user of a remote computing cluster or a remote repository like GitHub, the cumulative amount of time you spend entering your password really adds up.
+Run the following command to make a symbolic link to your computational notebook.
 
-### Keys for GitHub
+```bash
+ln -s fh/fast/bloom_j/computational_notebooks/whannon/ whannon/
+```
 
-One of the most ubiqitous uses of `SSH` is to retrieve or store content on `GitHub`. Below are some general instructions on how to generate an `SSH` key for `GitHub`. Specific details may vary a little between operating systems, however, the steps should be the same.
+Now, you can access you computational notebook from it's original path (`cd fh/fast/bloom_j/computational_notebooks/whannon/`) and a new path from your home directory (`cd whannon/`). Both commands will take you to the same place.
 
-### Keys for a Rhino
+### Setting up SSH keys
 
-Many scientists will also need to use `SSH` to access computational resources like a high-performance computing cluster. Using a key to streamline your access can save you a lot of time. Here's how you can set up an `SSH` key for the computational resources at Fred Hutch Cancer Center.
+The approach outlined above is a perfectly good way to log into `Rhino`, but putting in your password each time can get annoying. Instead, I'd recommend setting up SSH to be password-free using SSH keys. This will allow you to log in securely without needing to enter your password every time.
 
-- Structure of the HPC infrastructure.
-- Using a proxy jump to access Rhino
+SSH keys are a pair of cryptographic keys (one _public_, one _private_) used to authenticate your identity when connecting to a remote server like `Rhino`. The private key stays on your local machine and is kept secret, while the public key is placed with the server. When you log in, the server checks that the private key on your machine matches the public key it has, allowing you to authenticate without needing to enter a password.
 
-## Gizmo and Slurm
+:::warning
+The process for generating SSH keys differs between operating systems. The following steps apply to a local computer with Mac OS and a remote computer with Ubuntu Linux (`Rhino`). There are tons of tutorials online for setting up SSH keys if your computer has a different operating system.
+:::
 
-`Rhino` is awesome, but it's not intended for running computationally or time intensive programs. For that, we have `Gizmo`, a high-performance cluster that can be used to run tons of long, computationally intensive jobs in parallel. However, using `Gizmo` can be intimidating for people who haven't used HPCs before.
+#### Step 1: Generate an SSH Key Pair
 
-- Submitting jobs with `Slurm`
-- Accessing `Gizmo` interactively
-- Checking on the status of your jobs
+First, you'll need to generate a pair of SSH keys on your local machine. To do this, open a terminal (make sure you're **not** logged into `Rhino`) and run the following command:
 
-## Multiplexing with `Tmux`
+```bash
+ssh-keygen -t rsa -b 4096 -C "rhino.fhcrc.org"
+```
 
-Sessions on `Rhino` are temporary. If you exit from `Rhino`, either by closing the terminal or loosing your connection, your session is _poof_, gone. However, there are ways of saving the state of your `Rhino` sessions. The most powerful is by using the terminal multiplexer `Tmux`.
+- `-t rsa` specifies that you're generating an RSA key.
+- `-b 4096` generates a 4096-bit key for added security.
+- `-C "rhino.fhcrc.org"` adds an optional label (in this case, the name of the remote host) to help identify your key.
 
-- Describe `Tmux`
-- When should you use `Tmux`
-- How do you use `Tmux`
+When you're be prompted for a file location, press Enter to select the default (`~/.ssh/id_rsa`). When you're prompted to enter an optional passphrase, also press Enter to skip this step.
 
-## Configuring with .dotfiles
+#### Step 2: Copy the public key to `Rhino`
 
-Now you know how to access these resources. You might be frequently be hopping between your local and remote machine. However, all the settings on your local machine are likely totally different than your remote machine. `.dotfiles` provide a handy way of essentially saving your settings.
+Now you'll have two keys located at `~/.ssh/id_rsa`, one public and one private. Copy the **public** key to `Rhino` using the following command:
 
-## Helpful resources
+```bash
+ssh-copy-id username@rhino
+```
 
-- The guide from FH sci comp
-- Slurm guide
-- Tmux cheet sheet
+Your public SSH key will now be on `Rhino` in `~/.ssh/authorized_keys` where `~` is your home directory on the server (`/home/username`).
+
+#### Step 3: Log in to make sure it worked
+
+You should be able to log into `Rhino` without a password now. Test it out:
+
+```bash
+ssh username@rhino
+```
+
+If everything worked, you won't be prompted for a password.
+
+#### Step 4: Edit your SSH config
+
+This step is optional, but it will make life easier down the road. Make a new file called 'config' (no extension) in `~/ssh/` on your local machine and add the following line:
+
+```text
+Host rhino
+  HostName rhino
+  User username <---- add your FH username here
+  IdentityFile ~/.ssh/id_rsa
+```
+
+### Setting up a proxy jump
+
+So far, the approaches detailed above will only work when you're on the Fred Hutch wifi. But what about if you're working from home and you want to access the sever? The simplest option is to log into the Fred Hutch VPN from a Fred Hutch managed computer and log into `Rhino` like you normally would. However, if you don't have a Fred Hutch managed computer, this won't work. In that case, the other option is to use a 'proxy jump'.
+
+A proxy jump involves logging into `Rhino` through an intermediate host called `Snail`. First you log into `Snail`, then from `Snail` you log into `Rhino`. Thankfully, we can automate this process using SSH keys and the SSH config.
+
+### Computationally intensive computing with `Gizmo`
+
+The `Rhino` cluster is intended for accessing and manipulating files, running and developing programs, managing software environments, and interactive coding. It's **not** intended running for computationally intensive jobs (such as aligning sequencing reads) that take a long time or use many CPUs. For those kinds of jobs, we use the `Gizmo` cluster. Like `Rhino`, `Gizmo` is a computer cluster managed by Fred Hutch; unlike `Rhino`, it's very, very large.
+
+There are two methods of running programs on `Gizmo`: (1) [submitting them as jobs with `Slurm`]() or (2) [running them nteractively with `grabnode`](). I'll discuss both below.
+
+#### Using `Gizmo` interactively
+
+#### Using `Gizmo` with `Slurm`
+
