@@ -48,12 +48,12 @@ git init
 Or, you can clone an existing Git repository from a remote server to your local machine.
 
 ```bash
-git clone [repository URL]
+git clone <repository URL>
 cd my_project
 ```
 
 :::tip
-A quick note about cloning a remote repository. There are several methods for doing this, some of which require a little set up, and those will be covered in the next section.
+A quick note about cloning a remote repository. There are several methods for doing this, some of which require a little set up, and those will be covered in the [next section]().
 :::
 
 **Check Repository Status**:
@@ -64,7 +64,7 @@ After you've made some changes to your directory, you can check to see what thes
 git status
 ```
 
-This command displays the status of your working directory and staging area.
+This command displays the status of your working directory and staging area. It shows what file have been edited, what new files aren't being tracked, and more.
 
 **Add Changes to Staging Area**:
 
@@ -72,110 +72,108 @@ This command displays the status of your working directory and staging area.
 git add [file(s)]
 ```
 
-Stages specific files for the next commit. Use git add . to stage all changes.
+Stages specific files for the next commit. Use `git add .` to stage all changes.
 
-Commit Changes:
+**Commit Changes**:
 
-bash
-Copy code
+```bash
 git commit -m "Your commit message"
-Records a snapshot of the staged changes. The commit message should briefly describe what you've done.
+```
 
-View Commit History:
+Records a snapshot of the staged changes. The commit message should briefly describe what you've done. It's important to write a good commit message.
 
-bash
-Copy code
+**View Commit History**:
+
+You can see a log of all commits that have been made to a project.
+
+```bash
 git log
-Shows a log of all commits made in the repository.
+```
 
-Compare Changes:
+**Compare Changes**:
 
-bash
-Copy code
+This can be useful, but you're unlikely to do it much.
+
+```bash
 git diff
-Compares changes between commits, branches, or your working directory and the last commit.
+```
 
-Push Changes to Remote Repository:
+It compares changes between commits, branches, or your working directory and the last commit.
 
-bash
-Copy code
+**Push Changes to Remote Repository**:
+
+```bash
 git push
+```
+
 Uploads your local commits to a remote repository.
 
-Pull Updates from Remote Repository:
+**Pull Updates from Remote Repository**:
 
-bash
-Copy code
+```bash
 git pull
+```
+
 Fetches and merges updates from a remote repository into your local repository.
 
 These commands form the backbone of Git operations. Regular use of git status and git log will help you stay informed about your project's state and history.
 
-Branching and Merging
-Branches are a powerful feature in Git that allow you to diverge from the main codebase and work independently on a set of changes. The primary branch is usually called main or master, and it's where the stable version of your project resides.
+### Branching and Merging
 
-Why Use Branches?
-Feature Development: When adding new features, you can create a branch to isolate your work. This way, the main codebase remains unaffected until the feature is complete and tested.
+Branches are a powerful feature in Git that allow you to diverge from the main codebase and work independently on a set of changes. The primary branch is usually called `main` or sometimes `master`, and it's where the stable version of your project resides.
 
-Bug Fixes: For fixing bugs, especially in a production environment, branches let you address issues without disrupting ongoing development work.
+**Why Use Branches?**
 
-Experimentation: If you're trying out new ideas or approaches, branches provide a safe space to experiment without the risk of breaking existing code.
+Branching your code with Git allows for parallel development of multiple features or fixes simultaneously without interference. While you're editing the code on a branch, the `main` branch remains stable, and new code is only merged after it's ready. Here are some things you might use branches for:
 
-How to Use Branches
-Create a New Branch:
+1. Feature Development: When adding new features, you can create a branch to isolate your work. This way, the main codebase remains unaffected until the feature is complete and tested.
 
-bash
-Copy code
-git branch [branch-name]
-Creates a new branch named [branch-name].
+2. Bug Fixes: For fixing bugs, especially in a production environment, branches let you address issues without disrupting ongoing development work.
 
-Switch to a Branch:
+3. Experimentation: If you're trying out new ideas or approaches, branches provide a safe space to experiment without the risk of breaking existing code.
 
-bash
-Copy code
+**See all active branches**:
+
+If you want to see what branches you have active locally, run:
+
+```bash
+git branch
+```
+
+This will print out the branches you have in your local repo and tell you which branch you're currently on.
+
+**Switch to a Branch**:
+
+If you want to switch (or checkout) a different branch, run:
+
+```bash
 git checkout [branch-name]
-Switches your working directory to the specified branch.
+```
 
-Create and Switch to a New Branch:
+This witches your working directory to the specified branch.
 
-bash
-Copy code
+**Create and Switch to a New Branch**:
+
+To make a new branch, run:
+
+```bash
 git checkout -b [branch-name]
-A shortcut that creates a new branch and switches to it immediately.
+```
 
-Merge a Branch:
+This is a shortcut that creates a new branch and switches to it immediately.
 
-bash
-Copy code
+**Merge a Branch**:
+
+After you've completed work on a branch and ensured it's stable, you'll want to merge it back into the main branch. This process integrates your changes and updates the main codebase. First, checkout the branch you want to merge into:
+
+```bash
 git checkout [target-branch]
+```
+
+Once you're in the target branch (for example, `main`), merge the branch with your changes by running:
+
+```bash
 git merge [source-branch]
-Merges [source-branch] into [target-branch]. This integrates the changes from the source branch into the target branch.
+```
 
-Delete a Branch:
-
-bash
-Copy code
-git branch -d [branch-name]
-Deletes the specified branch after it has been merged.
-
-When to Merge
-After you've completed work on a branch and ensured it's stable, you'll want to merge it back into the main branch. This process integrates your changes and updates the main codebase. If multiple people are working on the project, it's a good practice to pull the latest changes from the main branch into your branch before merging, to minimize conflicts.
-
-Handling Merge Conflicts
-Sometimes, Git can't automatically merge changes due to conflicting edits in the same parts of files. When this happens, you'll need to manually resolve the conflicts:
-
-Identify Conflicts: Git will mark the files with conflicts.
-Resolve Conflicts: Edit the files to fix the issues.
-Mark Conflicts as Resolved:
-bash
-Copy code
-git add [file(s)]
-Complete the Merge:
-bash
-Copy code
-git commit
-Benefits of Branching
-Parallel Development: Multiple features or fixes can be developed simultaneously without interference.
-Code Stability: The main branch remains stable, as new code is only merged after it's ready.
-Collaboration: Teams can work independently and integrate their work efficiently.
-By leveraging branches, you can maintain a clean and organized codebase, making your development process more efficient and less error-prone.
+This merges the changes in the [source-branch] into [target-branch].
