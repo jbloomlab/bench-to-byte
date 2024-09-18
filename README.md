@@ -1,9 +1,13 @@
 # Bench to Byte: A biologist's guide to crafting quality code
 
-Our goal is to empower biologists with the tools necessary for efficient coding. This course is designed for life scientists with moderate computational proficiency who want to optimize their workflow. You’ll learn how to organize projects, navigate the complexities of software environments, and build robust and reproducible pipelines. This guide will walk you through the essential steps needed to elevate your coding skills. You'll not only learn the "how," but the "why" behind each practice, ensuring you can apply these skills to streamline your research and foster reproducibility and collaboration.
+*This guide is still under active development.*
 
-_Note: A the moment, this course is geared towards scientists at the Fred Hutch Cancer Center._
+## TODO:
 
+- Copy editing each section
+- Add more specific examples
+- Host the website
+  
 ## Developing
 
 To develop **Bench to Byte**, you'll need to set up a few things. Specifically, you'll need two pieces of software: `Node.js` and `npm`. `Node.js` is an environment that allows you to run Javascript code on your computer. `npm` is a package manager that handles the Javascript libraries necessary to create this website.
@@ -50,7 +54,7 @@ and access the preview at the URL provided under `Network`
 
 ## Contributing
 
-[`Bench to Byte`](https://github.com/WillHannon-MCB/bench-to-byte) is based on the static site generator [VitePress](https://vitepress.dev/). This allows you to create fully functional web pages using [Markdown](https://www.markdownguide.org/) files. To add a new page to the site, you simply create a markdown document in the correct directory and make a pull request to [the website repository on GitHub](https://github.com/WillHannon-MCB/bench-to-byte).
+`Bench to Byte` is based on the static site generator [VitePress](https://vitepress.dev/). This allows you to create fully functional web pages using [Markdown](https://www.markdownguide.org/) files. To add a new page to the site, you simply create a markdown document in the correct directory and make a pull request.
 
 For more details on writing markdown for a Vitepress website, see the markdown reference [here](https://vitepress.dev/guide/markdown).
 
