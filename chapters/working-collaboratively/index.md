@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "Chapter 5: Working collaboratively"
+title: "Section 6: Working collaboratively"
 sidebar: true
 aside: true
 ---

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "Chapter 0: Coding Smarter with Online Tools"
+title: "Section 0: Coding Smarter with Online Tools"
 sidebar: true
 aside: true
 ---

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "2. Organizing your projects"
+title: "Section 2: Organizing your projects"
 sidebar: true
 aside: true
 ---

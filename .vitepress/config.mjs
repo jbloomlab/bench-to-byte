@@ -15,7 +15,11 @@ export default defineConfig({
       {
         text: "Chapters",
         items: [
-          { text: "0. Introduction", link: "/chapters/introduction/" },
+          { text: "Introduction", link: "/chapters/introduction/" },
+          {
+            text: "0. Coding Smarter with Online Tools",
+            link: "/chapters/chatgpt-and-llms/",
+          },
           {
             text: "1. Setting up your IDE",
             link: "/chapters/setting-up-your-ide/",
@@ -29,16 +33,16 @@ export default defineConfig({
             link: "/chapters/using-remote-resources/",
           },
           {
-            text: "4. Tracking your code",
+            text: "4. Managing software environments",
+            link: "/chapters/managing-software-environments/",
+          },
+          {
+            text: "5. Tracking your code",
             link: "/chapters/tracking-your-code/",
           },
           {
-            text: "5. Working collaboratively",
+            text: "6. Working collaboratively",
             link: "/chapters/working-collaboratively/",
-          },
-          {
-            text: "6. Managing software environments",
-            link: "/chapters/managing-software-environments/",
           },
           {
             text: "7. Reproducible workflows and pipelines",
@@ -48,7 +52,6 @@ export default defineConfig({
             text: "8. Coding best practices",
             link: "/chapters/coding-best-practices/",
           },
-          { text: "9. ChatGPT and LLMs", link: "/chapters/chatgpt-and-llms/" },
         ],
       },
     ],

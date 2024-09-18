@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "3. Using remote computing resources"
+title: "Section 3: Using remote computing resources"
 sidebar: true
 aside: true
 ---

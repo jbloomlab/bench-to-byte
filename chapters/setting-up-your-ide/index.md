@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "1. Setting up your IDE"
+title: "Section 1: Setting up your IDE"
 sidebar: true
 aside: true
 ---

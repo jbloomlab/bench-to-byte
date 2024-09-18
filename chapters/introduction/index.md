@@ -1,13 +1,13 @@
 ---
 layout: doc
-title: "0. Introduction"
+title: "Introduction"
 sidebar: true
 aside: true
 ---
 
 # {{ $frontmatter.title }}
 
-We made this guide for biologists with moderate programming experience who want to improve the way they work. This guide is _not_ intended to teach you a particular coding language ([here's a quick aside about that](#learning-to-program)). Instead, you'll learn how to organize your projects, use remote computers, create reproducible software environments, and build computational pipelines. Our goal is that you not only learn the _how_ but also the _why_ behind each practice.
+I made this guide for biologists with moderate programming experience who want to improve the way they work. This guide is _not_ intended to teach you a particular coding language ([here's a quick aside about that](#learning-to-program)). Instead, you'll learn how to organize your projects, use remote resources, create reproducible software environments, and build computational pipelines. Our goal is that you not only learn the _how_ but also the _why_ behind each practice.
 
 ::: tip A Quick Note
 This guide is geared towards members of the [Bloom lab](https://jbloomlab.org/) at the Fred Hutch Cancer Center. In the future, I might expand this resource to apply to a more general audience.
@@ -17,24 +17,24 @@ This guide is geared towards members of the [Bloom lab](https://jbloomlab.org/) 
 
 Although each chapter is useful in isolation, you'll get the most out of this guide if you follow it in order.
 
+0. [Coding Smarter with Online Tools](/chapters/chatgpt-and-llms/)
+   > Taking advantage of online resources
 1. [Setting up your IDE](/chapters/setting-up-your-ide/)
    > Using VSCode to streamline your coding workflow
 2. [Organizing your projects](/chapters/organizing-your-projects/)
    > Creating clearly named, well organized projects
 3. [Using remote resources](/chapters/using-remote-resources/)
    > Increasing your computational capabilities with remote resources
-4. [Tracking your code](/chapters/tracking-your-code/)
-   > Versioning your code with `git`
-5. [Working collaboratively](/chapters/working-collaboratively/)
-   > Collaborating with `GitHub`
-6. [Managing software environments](/chapters/managing-software-environments/)
+4. [Managing software environments](/chapters/managing-software-environments/)
    > Using `conda` to isolate software environments
+5. [Tracking your code](/chapters/tracking-your-code/)
+   > Versioning your code with `git`
+6. [Working collaboratively](/chapters/working-collaboratively/)
+   > Collaborating with `GitHub`
 7. [Reproducible workflows and pipelines](/chapters/creating-workflows-and-pipelines/)
    > Building reproducible pipelines with `Snakemake`
 8. [Coding best practices](/chapters/coding-best-practices/)
-   > Writing clear and efficient code
-9. [ChatGPT and LLMs](/chapters/chatgpt-and-llms/)
-   > Taking advantage of online resources
+   > Writing clear code
 
 ## Learning to Program
 
@@ -56,7 +56,7 @@ Python and R share most of the same core features, but they have differing stren
 
 If possible, learn the language that people around you (in your lab or institute) are using. It makes it easier to collaborate and they'll be a valuable resource while you're learning.
 
-::: tip For the Bloom Lab
+::: tip
 Learn Python if you're a member of the [Bloom lab](https://jbloomlab.org/).
 :::
 

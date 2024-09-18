@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "4. Tracking code with Git"
+title: "Section 5: Tracking code with Git"
 sidebar: true
 aside: true
 ---
