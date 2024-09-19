@@ -7,9 +7,9 @@ aside: true
 
 # {{ $frontmatter.title }}
 
-Those familiar with coding will know the importance of using the appropriate text editor. Hopefully, you know better than to write code in Microsoft Word. You've probably encountered tools like `Rstudio` for writing `R` code, or `Jupyter` for writing `Python` code. These tools are a perfectly reasonable way to write code, but they're inherently limited to a handful of languages. This quickly becomes an issue in scientific programming where a single project can consist of `bash`, `Python`, `R`, and `markdown` files.
+Those familiar with coding will know the importance of using the appropriate text editor. Hopefully, you know better than to write code in Microsoft Word. You've probably encountered tools like `Rstudio` for writing `R`, or `Jupyter` for writing `Python`. These tools are a perfectly reasonable way to write code, but they're inherently limited to a handful of languages. This quickly becomes an issue in scientific programming where a single project can consist of `bash`, `Python`, `R`, and `markdown` files.
 
-An IDE, or _Integrated Development Environment_, provides a solution to this problem. With an IDE, you can write `markdown` documentation, edit a `bash` script, organize your directories, quickly check a `.log` file, and run a `Python` script all in the same application. I can't stress enough how much time an IDE can save you. However, all that functionality in one application can be complicated and intimidating. Below, I'll introduce you to Microsoft's Visual Studio Code (VS Code), one of the most approachable IDEs for general-purpose programming.
+An IDE, or _Integrated Development Environment_, provides a solution to this problem. With an IDE, you can write `markdown` documentation, edit a `bash` script, organize your directories, quickly check a `.log` file, and run a `Python` script all in the same window. I can't stress enough how much time an IDE can save you. However, so much functionality in one application can is intimidating. Below, I'll introduce you to [Microsoft's Visual Studio Code (VS Code)](https://code.visualstudio.com/), one of the most approachable IDEs for general-purpose programming.
 
 :::tip Note
 I'd highly recommend giving VS Code a try even if you're familiar with another text editor for coding. However, I wouldn't recommend VS Code if you're primarily using R. I'd suggest that you use `Rstudio` for all R coding.
@@ -17,7 +17,7 @@ I'd highly recommend giving VS Code a try even if you're familiar with another t
 
 ## Getting started with VS Code
 
-There is a reason that VS Code is the [most popular code editor](https://survey.stackoverflow.co/2023/#section-most-popular-technologies-integrated-development-environment) among software developers. It's powerful, flexible, user-friendly, and **free**. VS Code comes with lots of handy features, including intelligent autocomplete and built-in `git` commands that make it a breeze to keep track of changes to your code. However, the most powerful feature of VS Code is that it's customizable.
+There is a reason that VS Code is the [most popular code editor](https://survey.stackoverflow.co/2023/#section-most-popular-technologies-integrated-development-environment) among software developers. It's powerful, flexible, user-friendly, and **free**. VS Code comes with lots of handy features, including intelligent autocomplete and built-in `git` commands that make it a breeze to keep [track of changes to your code](/sections/tracking-your-code/). However, the most powerful feature of VS Code is that it's customizable.
 
 :::tip Installation
 VS Code is a desktop application like any other. To install VS Code, simply download it from the [VS Code website](https://code.visualstudio.com/) for your specific operating system (Windows, Mac, etc...).
@@ -36,7 +36,7 @@ VS Code is laid out in a manner that makes it easy to edit code, navigate your p
 
 - **Editor** - The main area to edit your files. You can open as many editors as you like side-by-side, vertically, and horizontally.
 
-- **Panel** - Space below the code editor that houses additional functions. The most relevant to readers of this site is the integrated terminal. You can collapse the panel out of view for more space.
+- **Panel** - Space below the code editor that houses additional functions. The most relevant feature for readers of this guide is the integrated terminal. You can collapse the panel out of view for more space.
 
 - **Status Bar** - Provides project-specific information.
 
@@ -45,13 +45,13 @@ In addition to these main visual elements, there is also an interface at the top
 ![Command Pallet](https://code.visualstudio.com/assets/docs/getstarted/userinterface/commands.png)
 > *The command pallet taken from the [VS Code documentation](https://code.visualstudio.com/docs/getstarted/userinterface)*
 
-To open the command pallet, use the keyboard shortcut `⇧⌘P`. This shortcut is the **most important** thing to remember when using VS Code. With the command pallet, you can perform a variety of actions from formatting a file, opening a terminal window, changing your settings, and more. Effectively, anything you can do in VS Code, you can do it with the command pallet.
+To open the command pallet, use the keyboard shortcut `⇧⌘P`. This shortcut is the **most important** thing to remember when using VS Code. With the command pallet, you can perform a variety of actions from formatting a file, opening a terminal window, changing your settings, and more. **Effectively, anything you can do in VS Code, you can do it with the command pallet**.
 
-Although this covers the basic interface of VS Code, there are a lot more features packed into the standard view that we didn't cover. If you're interested in learning more about the user interface for VS Code and how you can customize it, check out [this page](https://code.visualstudio.com/docs/getstarted/userinterface) in the documentation.
+Although this covers the basic interface of VS Code, there are a lot more features packed into the standard view that I didn't cover. If you're interested in learning more about the user interface for VS Code and how you can customize it, check out [this page](https://code.visualstudio.com/docs/getstarted/userinterface) in the documentation.
 
 ## Installing Extensions
 
-VS Code comes standard with most of the features you'll need. However, there will probably be some features that are specific to the project you're working on. For example, if you're frequently using `Python`, you might want to format your code with `black` when you save a file. If you're writing documents in `markdown`, you'll probably want some basic form of spellchecking. Although VS Code doesn't come with these features built-in, you can add them as 'extensions'. In most cases, VS Code will recommend appropriate extensions.
+VS Code comes standard with most of the features you'll need. However, there will probably be certain features specific to the project you're working on. For example, if you're frequently using `Python`, you might want to format your code with `black` when you save a file. If you're writing documents in `markdown`, you'll probably want some basic form of spellchecking. Although VS Code doesn't come with these features built-in, you can add them as 'extensions'. In most cases, VS Code will recommend appropriate extensions.
 
 Here are several VS Code extensions that are particularly useful to us:
 
