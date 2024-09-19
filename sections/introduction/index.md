@@ -15,25 +15,25 @@ This guide is geared towards members of the [Bloom lab](https://jbloomlab.org/) 
 
 ## Outline
 
-Although each chapter is useful in isolation, you'll get the most out of this guide if you follow it in order.
+Although each section is useful in isolation, you'll get the most out of this guide if you follow it in order.
 
-0. [Coding Smarter with Online Tools](/chapters/chatgpt-and-llms/)
+0. [Coding Smarter with Online Tools](/sections/chatgpt-and-llms/)
    > Taking advantage of online resources
-1. [Setting up your IDE](/chapters/setting-up-your-ide/)
+1. [Setting up your IDE](/sections/setting-up-your-ide/)
    > Using VSCode to streamline your coding workflow
-2. [Organizing your projects](/chapters/organizing-your-projects/)
+2. [Organizing your projects](/sections/organizing-your-projects/)
    > Creating clearly named, well organized projects
-3. [Using remote resources](/chapters/using-remote-resources/)
+3. [Using remote resources](/sections/using-remote-resources/)
    > Increasing your computational capabilities with remote resources
-4. [Managing software environments](/chapters/managing-software-environments/)
+4. [Managing software environments](/sections/managing-software-environments/)
    > Using `conda` to isolate software environments
-5. [Tracking your code](/chapters/tracking-your-code/)
+5. [Tracking your code](/sections/tracking-your-code/)
    > Versioning your code with `git`
-6. [Working collaboratively](/chapters/working-collaboratively/)
+6. [Working collaboratively](/sections/working-collaboratively/)
    > Collaborating with `GitHub`
-7. [Reproducible workflows and pipelines](/chapters/creating-workflows-and-pipelines/)
+7. [Reproducible workflows and pipelines](/sections/creating-workflows-and-pipelines/)
    > Building reproducible pipelines with `Snakemake`
-8. [Coding best practices](/chapters/coding-best-practices/)
+8. [Coding best practices](/sections/coding-best-practices/)
    > Writing clear code
 
 ## Learning to Program

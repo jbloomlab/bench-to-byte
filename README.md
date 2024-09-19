@@ -2,7 +2,7 @@
 
 *This guide is still under active development.*
 
-## TODO:
+## TODO
 
 - Copy editing each section
 - Add more specific examples

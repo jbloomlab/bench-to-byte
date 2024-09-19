@@ -9,48 +9,48 @@ export default defineConfig({
     logo: { light: "/logo.svg", dark: "/logo-dark.svg" },
     siteTitle: "Bench2Byte",
 
-    nav: [{ text: "About", link: "/chapters/introduction/" }],
+    nav: [{ text: "About", link: "/sections/introduction/" }],
 
     sidebar: [
       {
-        text: "Chapters",
+        text: "Sections",
         items: [
-          { text: "Introduction", link: "/chapters/introduction/" },
+          { text: "Introduction", link: "/sections/introduction/" },
           {
             text: "0. Coding Smarter with Online Tools",
-            link: "/chapters/chatgpt-and-llms/",
+            link: "/sections/chatgpt-and-llms/",
           },
           {
             text: "1. Setting up your IDE",
-            link: "/chapters/setting-up-your-ide/",
+            link: "/sections/setting-up-your-ide/",
           },
           {
             text: "2. Organizing your projects",
-            link: "/chapters/organizing-your-projects/",
+            link: "/sections/organizing-your-projects/",
           },
           {
             text: "3. Using remote resources",
-            link: "/chapters/using-remote-resources/",
+            link: "/sections/using-remote-resources/",
           },
           {
             text: "4. Managing software environments",
-            link: "/chapters/managing-software-environments/",
+            link: "/sections/managing-software-environments/",
           },
           {
             text: "5. Tracking your code",
-            link: "/chapters/tracking-your-code/",
+            link: "/sections/tracking-your-code/",
           },
           {
             text: "6. Working collaboratively",
-            link: "/chapters/working-collaboratively/",
+            link: "/sections/working-collaboratively/",
           },
           {
             text: "7. Reproducible workflows and pipelines",
-            link: "/chapters/creating-workflows-and-pipelines/",
+            link: "/sections/creating-workflows-and-pipelines/",
           },
           {
             text: "8. Coding best practices",
-            link: "/chapters/coding-best-practices/",
+            link: "/sections/coding-best-practices/",
           },
         ],
       },

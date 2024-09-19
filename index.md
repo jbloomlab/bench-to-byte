@@ -11,5 +11,5 @@ hero:
   actions:
     - theme: brand
       text: Start Learning!
-      link: /chapters/introduction/
+      link: /sections/introduction/
 ---

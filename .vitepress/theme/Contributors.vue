@@ -35,7 +35,7 @@ export default {
     </div>
   </div>
 </template>
-  
+
 <style>
 :root {
   --text-color-light: rgba(60, 60, 67, 0.78);
@@ -54,7 +54,7 @@ export default {
 
 .contributors-container {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 .grid-container {
@@ -63,6 +63,7 @@ export default {
   padding: 10px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 20px;
 }
 
 .contributor {
