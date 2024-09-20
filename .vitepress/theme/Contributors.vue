@@ -1,16 +1,11 @@
 <script>
+import { contributorsData } from '../../contributors.js';
+
 export default {
   data() {
     return {
-      contributors: []
+      contributors: contributorsData
     };
-  },
-  mounted() {
-    fetch('/contributors.json')
-      .then(response => response.json())
-      .then(data => {
-        this.contributors = data;
-      });
   },
   computed: {
     gridStyle() {
@@ -22,6 +17,7 @@ export default {
     }
   }
 };
+
 </script>
 
 <template>
