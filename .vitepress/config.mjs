@@ -1,6 +1,7 @@
 import { defineConfig } from "vitepress";
 
 export default defineConfig({
+  base: "/bench-to-byte/",
   lang: "en-US",
   title: "Bench to Byte",
   description: "A biologist's guide to crafting quality code",
