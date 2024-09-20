@@ -7,7 +7,7 @@ aside: true
 
 # {{ $frontmatter.title }}
 
-Hopefully, you're already aware of the importance of [properly organizing your projects](), [tracking your code](), and [organizing complex analyses into automated workflows](). In this final section, I'll highlight some important language-agnostic tips for improving your coding.
+Hopefully, you're already aware of the importance of [properly organizing your projects](/sections/organizing-your-projects/), [tracking your code](/sections/tracking-your-code/), and [organizing complex analyses into automated workflows](/sections/creating-workflows-and-pipelines/). In this final section, I'll highlight some important language-agnostic tips for improving your coding.
 
 ## Following conventions
 

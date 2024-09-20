@@ -14,7 +14,7 @@ I use version control for nearly all of the programming I do. It's a crucial ski
 By preserving a history of incremental changes over time, you can go back and see what you've done, find out when and why something stopped working, make multiple changes to your project in parallel, and more. In this section, I'll introduce Git, a common tool for version control developed by Linus Torvalds.
 
 :::tip
-This section is only a quick introduction to Git. [This free book](https://git-scm.com/book/en/v2) is the definitive resource for people learning Git. I highly recommend skimming chapters 1-3.
+[This free book](https://git-scm.com/book/en/v2) is the definitive resource for learning Git. I highly recommend skimming chapters 1-3.
 :::
 
 ## How does git work?
@@ -29,7 +29,10 @@ Here's a high-level overview of how `git` tracks your files:
 
 3. **Committing Changes**: After staging, you create a commit with `git commit`. This action records a snapshot of the staged changes and adds it to your project's history. Each commit is uniquely identified, allowing you to track and revert to specific versions.
 
-4. **Local and Remote Repositories**: Git stores your project's history locally, but, _optionally_, you can also link your repository to a [remote server like GitHub or Bitbucket]() which enables collaboration, backup, and access from different machines. I'll talk more about this in the next section.
+4. **Local and Remote Repositories**: Git stores your project's history locally, but, _optionally_, you can also link your repository to a remote server like GitHub or Bitbucket which enables collaboration, backup, and access from different machines. I'll talk more about this in the [next section](/sections/working-collaboratively/).
+
+![Working tree](https://git-scm.com/book/en/v2/images/areas.png)
+> *Working tree, staging area, and Git directory taken from [Pro Git](https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F)*
 
 ## Basic git
 
@@ -37,7 +40,7 @@ To get started with Git, you'll need to familiarize yourself with a couple key c
 
 **Initialize a Repository**:
 
-You can either create a new Git repository by making a directory and telling git to start tracking it.
+You create a new Git repository by telling Git to start tracking the code in a directory.
 
 ```bash
 mkdir my-project
@@ -53,12 +56,12 @@ cd my_project
 ```
 
 :::tip
-A quick note about cloning a remote repository. There are several methods for doing this, some of which require a little set up, and those will be covered in the [next section]().
+A quick note about cloning a remote repository. There are several methods for doing this, some of which require a little set up, and those will be covered in the [next section](/sections/working-collaboratively/).
 :::
 
 **Check Repository Status**:
 
-After you've made some changes to your directory, you can check to see what these are using the following command.
+After you've made some changes in your directory, you can check what these are using the following command.
 
 ```bash
 git status
@@ -80,7 +83,7 @@ Stages specific files for the next commit. Use `git add .` to stage all changes.
 git commit -m "Your commit message"
 ```
 
-Records a snapshot of the staged changes. The commit message should briefly describe what you've done. It's important to write a good commit message.
+Records a snapshot of the staged changes. The commit message should briefly describe what you've done. [It's important to write a good commit message](https://cbea.ms/git-commit/).
 
 **View Commit History**:
 
@@ -126,11 +129,11 @@ Branches are a powerful feature in Git that allow you to diverge from the main c
 
 Branching your code with Git allows for parallel development of multiple features or fixes simultaneously without interference. While you're editing the code on a branch, the `main` branch remains stable, and new code is only merged after it's ready. Here are some things you might use branches for:
 
-1. Feature Development: When adding new features, you can create a branch to isolate your work. This way, the main codebase remains unaffected until the feature is complete and tested.
+1. **Feature Development**: When adding new features, you can create a branch to isolate your work. This way, the main codebase remains unaffected until the feature is complete and tested.
 
-2. Bug Fixes: For fixing bugs, especially in a production environment, branches let you address issues without disrupting ongoing development work.
+2. **Bug Fixes**: For fixing bugs, especially in a production environment, branches let you address issues without disrupting ongoing development work.
 
-3. Experimentation: If you're trying out new ideas or approaches, branches provide a safe space to experiment without the risk of breaking existing code.
+3. **Experimentation**: If you're trying out new ideas or approaches, branches provide a safe space to experiment without the risk of breaking existing code.
 
 **See all active branches**:
 
@@ -150,9 +153,9 @@ If you want to switch (or checkout) a different branch, run:
 git checkout [branch-name]
 ```
 
-This witches your working directory to the specified branch.
+This switches your working directory to the specified branch.
 
-**Create and Switch to a New Branch**:
+**Create _and_ Switch to a New Branch**:
 
 To make a new branch, run:
 
@@ -177,3 +180,7 @@ git merge [source-branch]
 ```
 
 This merges the changes in the [source-branch] into [target-branch].
+
+:::tip Note
+While this approach works well for merging branches locally, in collaborative projects, you'll typically merge branches using pull requests. I'll cover this in more detail in the [next section](/sections/working-collaboratively/).
+:::

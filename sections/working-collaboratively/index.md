@@ -7,7 +7,7 @@ aside: true
 
 # {{ $frontmatter.title }}
 
-In [the last section](), I talked about tracking your code with Git. In principle, this can all happen locally in your repository, but in many cases, you want to make a _remote_ copy of a repository and its history. That's where services like [GitHub](https://github.com/) come in. GitHub is a website that acts as a remote repository for your code, allowing you to store it online, collaborate with others, and take advantage of various tools for version control and project management.
+In [the last section](/sections/tracking-your-code/), I talked about tracking your code with Git. In principle, this can all happen locally in your repository, but in many cases, you want to make a _remote_ copy of a repository and its history. That's where services like [GitHub](https://github.com/) come in. GitHub is a website that acts as a remote repository for your code, allowing you to store it online, collaborate with others, and take advantage of various tools for version control and project management.
 
 ## Using GitHub as a 'Remote'
 
@@ -23,7 +23,7 @@ A _remote_ in Git is simply a version of your project that's hosted on the inter
 - **Version Control**: Keeps track of every change made to the codebase, allowing you to revert to previous versions if needed.
 - **Documentation Hosting**: With [GitHub Pages](https://pages.github.com/), you can host project documentation or even entire websites directly from your repository.
 
-In our lab, we use GitHub to coordinate coding efforts, especially for projects that will be part of publications. By connecting your local git repository to GitHub, you make it easier to share your work and collaborate effectively.
+In our lab, we use GitHub to coordinate coding efforts, especially for projects that will be part of publications. By connecting your local Git repository to GitHub, you make it easier to share your work and collaborate effectively.
 
 ### Bloom Lab GitHub Organizations
 
@@ -40,9 +40,9 @@ But how do you decide when to host your local project remotely? Generally, I hos
 
 ### Connecting a _local_ repository to a _remote_
 
-As I mentioned in [the previous section](), Git is the version control system you use locally on your machine, while GitHub is the remote hosting service where you can store your repositories online. To connect a local repository to a GitHub remote you:
+As I mentioned in [the previous section](/sections/tracking-your-code/), Git is the version control system you use locally on your machine, while GitHub is the remote hosting service where you can store your repositories online. To connect a local repository to a GitHub remote you:
 
-1. **Initialize a Local Repository**: You can start from scratch by creating a local Git repository with `git init`. However, you can also connect an existing repository to a GitHub remote repository at any time.
+1. **Initialize a Local Repository**: You can start from scratch by creating a local Git repository with `git init`. However, **you can also connect an existing repository to a GitHub remote repository at any time**.
 
 2. **Create a Remote Repository**: On GitHub, you create a new repository to host your project in the appropriate organization or account.
 
@@ -50,9 +50,36 @@ As I mentioned in [the previous section](), Git is the version control system yo
 
 4. **Push and Pull Changes**: Now, you can use `git push` to upload your local commits to GitHub and `git pull` to update your local repository with changes from GitHub.
 
+### Cloning a _remote_ repository _locally_
+
+You can also clone an existing repository on GitHub onto your local machine. The local clone will be automatically connected to the remote repository it was cloned from, allowing you to pull updates or push changes.
+
+To clone a repository, you can use the following command in your terminal, replacing [repository-url] with the URL of the repository you want to clone:
+
+```bash
+git clone [repository-url]
+```
+
+There are two main protocols for cloning repositories: HTTP and SSH.
+
+- **HTTP**: No extra configuration, but you’ll need to enter your username and a personal access token every time you push changes.
+- **SSH**: A more secure and convenient method, which allows you to authenticate using SSH keys (no passwords!).
+
+:::tip
+Only fools use HTTP.
+:::
+
+#### Setting up SSH for GitHub
+
+Using SSH is preferred because it’s more secure and doesn’t require you to input credentials each time you push or pull changes. Once you’ve set up your SSH keys, GitHub will trust your machine, allowing you to interact with your repositories seamlessly.
+
+Setting up SSH for GitHub is similar to [setting up SSH for `Rhino`](/sections/using-remote-resources/). The main difference is that you'll add your public key to your account on GitHub. You should set this up for any computer you use GitHub with.
+
+Here are detailed and up-to-date instructions for [connecting to GitHub with SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
+
 ## Collaborative Workflows
 
-How do you work on code with others productively? It requires some structure to prevent conflicts and ensure code quality. Note, the following workflow mainly applies to projects where you're actively coding with other people. Small projects or projects in their early stages don't require this level of organization. 
+How do you work on code with others productively? It requires some structure to prevent conflicts and ensure code quality. Note, the following workflow mainly applies to projects where you're actively coding with other people. Small projects or projects in their early stages don't require this level of organization.
 
 ### Best Practices
 
@@ -85,7 +112,7 @@ When multiple collaborators edit the same parts of a file, Git may not be able t
 3. **Edit the File**: Remove the conflict markers and make the necessary edits.
 4. **Commit the Resolution**: After resolving the conflicts, commit the changes to complete the merge.
 
-Generally, you're unlikely to run into merge conflicts while coding in the Bloom Lab.
+Generally, you're unlikely to run into many merge conflicts while coding in the Bloom Lab.
 
 ### Issues and Discussions
 

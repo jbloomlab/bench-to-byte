@@ -7,11 +7,11 @@ aside: true
 
 # {{ $frontmatter.title }}
 
-Biological programming typically involves a combination of writing your own code and using tools developed by others. This can lead to projects with lots of different dependencies, each of which has specific version requirements. It's crucial for reproducibility that these software _environments_ are tracked and managed. Otherwise, you'd be the only one who can run your analysis pipeline. Managing this by hand would be difficult. Thankfully, there are tools like conda for managing software environments.
+Biological programming typically involves a combination of writing your own code and using tools developed by others. This can lead to projects with many dependencies, each of which has specific version requirements. It's crucial for reproducibility that these software _environments_ are tracked and managed. Otherwise, you'd be the only one who can run your analysis pipeline. Managing this by hand would be difficult. Thankfully, there are tools like Conda for managing software environments.
 
 ## What is Conda?
 
-[Conda](https://docs.conda.io/en/latest/) is an open-source tool for managing both software packages and environments. It allows you to install software and their dependencies in isolated virtual environments. This means you can easily switch between projects, each with its own set of package versions, without worrying about conflicts between dependencies.
+[Conda](https://docs.conda.io/en/latest/) is an open-source tool for managing both software packages. It allows you to install software and their dependencies in isolated virtual environments. This means you can easily switch between projects, each with its own set of package versions, without worrying about conflicts between dependencies.
 
 ### With Conda, you can
 
@@ -23,9 +23,9 @@ We make extensive use of Conda in the Bloom Lab. However, there are alternative 
 
 ### Conda vs. Mamba
 
-[Mamba](https://mamba.readthedocs.io/en/latest/) is a re-implementation of Conda in C++ that offers the same functionality but is often faster, especially when resolving complex dependencies or handling large environments. Mamba resolves dependencies _much_ faster and often uses less memory. I tend to use Mamba for building environments and Conda for quick operations like activating and deactivating an environment. However, this is just a habit and Mamba's version of Conda's commands are basically identical.
+[Mamba](https://mamba.readthedocs.io/en/latest/) is a re-implementation of Conda in C++ that offers the same functionality but is often faster, especially when resolving complex dependencies or handling large environments. I tend to use Mamba for building environments and Conda for quick operations like activating and deactivating an environment. However, this is just a habit, and Mamba's version of Conda's commands are basically identical.
 
-Which should you use? Conda works fine for small, simple environments. Mamba can save you time for larger or more complex environments. If you're setting up Conda from scratch [using the instructions below](), use Mamba. If you've already been using Conda with [miniforge] and you would need to install Mamba, stick with Conda.
+Which should you use? Conda works fine for small, simple environments. Mamba can save you time for larger or more complex environments. If you're setting up Conda from scratch [using the instructions below](#installing-miniforge), use Mamba. If you've already been using Conda with an installation of [miniconda](https://docs.anaconda.com/miniconda/), and you would need to install Mamba, stick with Conda.
 
 ## Setting up Conda on `Rhino`
 
@@ -37,7 +37,7 @@ Conda isn't pre-installed on `Rhino`, so you'll have to set it up yourself. The 
 A more comprehensive version of the following instructions is available [here](https://github.com/conda-forge/miniforge?tab=readme-ov-file#install).
 :::
 
-We're going to install `Mabma` and `Conda` on `Rhino` by downloading `miniforge` into our home directory (the default directory when you log into `Rhino`, i.e. `/home/username`).
+We're going to install Mamba and Conda on `Rhino` by downloading `miniforge` into our home directory (the default directory when you log into `Rhino`, i.e. `/home/username`).
 
 Run the following command in home (`/home/username`) to fetch and run the latest `miniforge` build script from the web.
 
@@ -80,7 +80,7 @@ After creating the environment, you can activate it using:
 conda activate myenv
 ```
 
-This switches your shell into the isolated environment, allowing you to install packages specific to that project. You'll see the prompt change from something like `(base) username@rhino02:~$ ` to `(myenv) username@rhino02:~$ ` to reflect that `myenv` is active. To deactivate and return to your `base` environment:
+This switches your terminal into the isolated environment, allowing you to install packages specific to that project. You'll see the prompt change from something like `(base) username@rhino02:~$ ` to `(myenv) username@rhino02:~$ ` to reflect that `myenv` is active. To deactivate and return to your `base` environment:
 
 ```bash
 conda deactivate
@@ -88,7 +88,7 @@ conda deactivate
 
 ### Making an environment from a file
 
-If someone has already created an environment and shared it with you, or if you want to share yours with others, you can easily set up an environment from an environment file (usually `environment.yml`). This is very common practice in the Bloom lab since we're often running [analysis pipelines]() with similar dependencies.
+If someone has already created an environment and shared it with you, or if you want to share yours with others, you can easily set up an environment from an environment file (usually `environment.yml`). This is very common practice in the Bloom lab since we're often running [analysis pipelines](/sections/creating-workflows-and-pipelines/) with similar dependencies.
 
 To create an environment from a file, use:
 
@@ -118,7 +118,7 @@ It specifies the name of the environment, like places (channels) to search for e
 
 ## Common issues
 
-While Conda is a helpful tool, you're bound to run into issues every once and awhile. Below are some common issues you might encounter and how to troubleshoot them.
+While Conda is a helpful tool, you're bound to run into issues occasionally. Below are some common issues you might encounter and how to troubleshoot them.
 
 ### My environment is taking a **very** long time to solve
 
@@ -154,4 +154,4 @@ Channels are repositories that Conda searches for package versions. Conda search
 conda config --set channel_priority strict 
 ```
 
-This means that Conda will always search through the channels you specified in the order they're specified. If that doesn't fix the issue, change the order of the channels until the environment can solve. If that doesn't work, check that the dependencies actually exist in the channels you're searching.
+This means that Conda will always search through channels in the order they're specified. If that doesn't fix the issue, change the order of the channels until the environment can solve. If that doesn't work, check that the dependencies actually exist in the channels you're searching.
