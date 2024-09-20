@@ -1,7 +1,5 @@
 # Bench to Byte: A biologist's guide to crafting quality code
 
-*This guide is still under active development.*
-
 I made this guide for biologists with moderate programming experience who want to improve the way they work. You'll learn how to organize your projects, use remote resources, create reproducible software environments, and build computational pipelines.
 
 This guide was made with members of the [Bloom lab](https://jbloomlab.org/) in mind. In the future, I might expand this resource to apply to a more general audience.
