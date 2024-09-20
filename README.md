@@ -96,6 +96,8 @@ To add details to a specific chapter of the course, simply edit the `index.md` f
 ![Alt Text](/my-image.png)
 ```
 
+If you've contributed in some way to this guide, add your name and a link to a photo in [`public/contributors.json`](/public/contributors.json).
+
 ## Suggestions
 
 If you have any suggestions for topics that aren't covered in this giude, please suggest them in the corresponding [Discussions thread](https://github.com/WillHannon-MCB/bench-to-byte/discussions/1).
