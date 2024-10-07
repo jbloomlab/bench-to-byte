@@ -5,7 +5,7 @@ export default defineConfig({
   lang: "en-US",
   title: "Bench to Byte",
   description: "A biologist's guide to crafting quality code",
-  head: [["link", { rel: "icon", href: "/logo.png" }]],
+  head: [["link", { rel: "icon", href: "/logo.svg" }]],
   themeConfig: {
     logo: { light: "/logo.svg", dark: "/logo-dark.svg" },
     siteTitle: "Bench2Byte",
