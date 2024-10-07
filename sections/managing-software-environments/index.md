@@ -106,7 +106,6 @@ name: myenv
 channels:
   - conda-forge
   - bioconda
-  - defaults
 
 dependencies:
   - altair=5.3
@@ -115,6 +114,10 @@ dependencies:
 ```
 
 It specifies the name of the environment, like places (channels) to search for each software, and the software (dependencies) and their versions. You activate the environment the [same way described above](#making-a-named-environment).
+
+:::warning
+As of October 2024, you won't be able to build environments with the `defaults` channel. Make sure you remove this from the channel specification in your environment specification.
+:::
 
 ## Common issues
 
