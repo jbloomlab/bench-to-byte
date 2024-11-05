@@ -38,67 +38,103 @@ We primarily use `Snakemake` in the Bloom lab. `Snakemake` is a workflow managem
 
 #### Using snakemake with SLURM
 
-To configure how snakemake interacts with SLURM, newer versions of snakemake (>8.0) require you to use the [profiles](https://snakemake.readthedocs.io/en/stable/executing/cli.html#profiles) system. This replaces cluster configuration files. Conceptually these work similarly to the old configuration files in that they allow you to configure how jobs are submitted to SLURM both globally and at a per-rule level. This system is still under active development so the advice here is current as of snakemake v8.24. 
+A `Snakemake` workflow consists of many connected steps called 'rules.' The same rule can be executed in parallel for each input sample to the workflow. Separately running instances of each rule are called 'jobs.' You can run each job _sequentially_, but it's much faster to run independent jobs _in parallel_. That's where a workload manager like [`Slurm`](https://slurm.schedmd.com/documentation.html) comes in handy. `Snakemake` can communicate with `Slurm` to allocate computational resources for running multiple jobs simultaneously.
+
+As of `Snakemake` version `8.*.*`, you'll need to use [profiles](https://snakemake.readthedocs.io/en/stable/executing/cli.html#profiles) to configure how `Snakemake` interacts with `Slurm`.
 
 ##### Setup
 
-To get started, first ensure that you have at least snakemake v8+ installed. You can check the Snakemake version with `snakemake --version`. In the latest version of the profile system,  interaction with the job schedulers is abstracted away into plugins. For SLURM, you will need to install the [snakemake-executor-plugin-slurm](https://snakemake.github.io/snakemake-plugin-catalog/plugins/executor/slurm.html). 
+Ensure that you have at least `Snakemake` version `8.*.*`+ installed. You can check by running `snakemake --version`. You'll also need to install the [snakemake-executor-plugin-slurm](https://snakemake.github.io/snakemake-plugin-catalog/plugins/executor/slurm.html) plugin from conda.
+
+```bash
+conda install bioconda::snakemake-executor-plugin-slurm
+```
 
 ##### Profiles configuration
 
-The profiles are simply YAML files that specify job scheduler-specific parameters. In theory, you could have separate profiles depending on where the pipeline is being run but in practice we'll mostly be dealing with SLURM. An example of a fairly minimal profile is below:
+"[Profiles](https://snakemake.readthedocs.io/en/stable/executing/cli.html#profiles)" are YAML files that specify how `Snakemake` should ask `Slurm` for resources.
 
+Make a directory in your project called `profile` and create an empty file called `config.yaml`:
+
+```bash
+mkdir profile
+touch profile/config.yaml
 ```
+
+Open `config.yaml` and add the following information:
+
+```yaml
 executor: slurm
+latency-wait: 60
+jobs: 100
+slurm-init-seconds-before-status-checks: 20
+
 default-resources:
- - runtime=720
-jobs: 50 
-use-conda: true
+  slurm_account: <account_name>
+  runtime: 10800
+  cpus_per_task: 1
+  mem_mb: 4000
 ```
 
-You can also specify rule-specific resource requirements in the profile configuration. For example, the code below would ask for 16 cpus anytime it submits a job for the `bigjob` rule. 
+This is the most basic version of a 'profile.' You can leave the first section untouched. However, you'll need to add the name of your `slurm_account` under `default-resources:` (e.g. `bloom_j`). As its name implies, `default-resources:` tells `Slurm` what resources should be allocated to a job if no other information is specified.
 
-```
+You'll occasionally have a rule that requires more resources. For example, alignment can be sped up significantly with multiple CPUs. Profiles can tell `Slurm` that jobs spawned from certain rules require more resources:
+
+```yaml
 set-resources:
-    bigjob:
-        cpus_per_task: 16
+  <rule_that_needs_more_cpus>:
+    cpus_per_task: 8
 ```
+
+The `set-resources:` section tells `Slurm` that jobs from your `<rule_that_needs_more_cpus>` should get 8 CPUs, not the single CPU given by default.
 
 :::tip
-These can also be specified in the rules themselves as demonstrated in the section below. However, if they are set in both places, the value specified in the profile will override what is set in the rule.
+Further details on configuring this `Slurm` with profiles can be found [here](https://snakemake.github.io/snakemake-plugin-catalog/plugins/executor/slurm.html).
 :::
-
-Further details on configuring this SLURM plugin can be found [here](https://snakemake.github.io/snakemake-plugin-catalog/plugins/executor/slurm.html).
 
 ##### Rule configuration
 
-Rule specific parameters can also be set in the rule definition itself. This can be particularly useful for long running steps (e.g. alignment) which may be able to use multiple cores to speed things up. These can be set with the `resources` keyword:
+If you have a rule that requires more resources, you should also define that in the rule itself with the `resources` and `threads` keywords:
 
-```
-rule bigjob
-	input: ...
-	output: ...
+```snakemake
+rule rule_that_needs_more_cpus:
+	input:
+	output:
 	threads: 8
 	resources:
 		mem_mb=16000,
 		cpus_per_task=8
-	shell: ...
+	shell:
 ```
 
 :::warning
-Currently, if you are submitting the snakemake job as a script itself, you must specify both `threads` and `cpus_per_task` or else this will not be properly propagated to SLURM. There is some ongoing discussion of this [issue](https://github.com/snakemake/snakemake-executor-plugin-slurm/issues/141) so it may be resolved at some point in the future. 
+Currently, if you are submitting the snakemake job as a script itself, you must specify both `threads` and `cpus_per_task` or else this will not be properly propagated to `Slurm`. There is some ongoing discussion of this [issue](https://github.com/snakemake/snakemake-executor-plugin-slurm/issues/141) so it may be resolved at some point in the future.
 :::
 
 ##### Submission script
 
-The main script to submit your pipeline to SLURM should look something like the following:
+After configuring a profile and updating your rules, you'll need to make a `bash` script that runs your `Snakemake` pipeline:
 
-```
+```bash
 #!/bin/bash
 #SBATCH -c 1
 #SBATCH --mem=1G
 
-snakemake --profile profiles/ -s workflow/Snakefile
+snakemake \
+    --software-deployment-method conda \
+    --conda-frontend mamba \
+    --workflow-profile profiles \
+    --rerun-incomplete
 ```
 
-This is just asking for 1 core with 1GB of memory for the main job of running the snakemake process, which will then spawn separate jobs for each rule that needs to be run. Therefore, we can keep the resource request here modest. Then in the `snakemake` command itself, you simply point it at your profiles configuration and your main `Snakefile` respectively. 
+The lines preceded by `#` tell `Slurm` that you'll need one CPU and 1GB of memory to start running the `Snakemake` pipeline. Once the `snakemake` command has been executed on this CPU, `Snakemake` will use the profile specified by `--workflow-profile` to begin submitting pipeline jobs to `Slurm`.
+
+:::warning
+If you run `Snakemake` by submitting a `bash` script to `Slurm` you'll get the following warning message:
+
+```txt
+You are running snakemake in a SLURM job context. This is not recommended, as it may lead to unexpected behavior. Please run Snakemake directly on the login node.
+```
+
+This shouldn't be a big issue, but please post an issue on this repository if you running into unexpected behavior.
+:::
