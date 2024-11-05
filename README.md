@@ -1,4 +1,4 @@
-# Bench to Byte: A biologist's guide to crafting quality code
+# [Bench to Byte](https://jbloomlab.github.io/bench-to-byte): A biologist's guide to crafting quality code
 
 I made this guide for biologists with moderate programming experience who want to improve the way they work. You'll learn how to organize your projects, use remote resources, create reproducible software environments, and build computational pipelines.
 
